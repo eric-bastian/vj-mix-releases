@@ -18,7 +18,42 @@ This repository holds **only the published binaries and the release notes**.
 - **Background Removal**: Automatically remove the background from your video capture to transparently overlay the artist on top of the visuals.
 - **Graphic Effects**: Apply various visual effects (filters, color grading, distortions) independently on the different sources (videos, camera, animations).
 - **Custom Texts**: Add, configure, and synchronize animated texts on the fly.
-- **Audio & DJ Sync**: Run in *Standard Mode* (reacting to browser audio) or *Rekordbox Bridge Mode* for frame-perfect sync with your DJ set (BPM, beats, phrases).
+
+## Operation Modes
+
+The application offers two main modes of operation to suit your setup:
+
+### 1. Standard Mode (Standalone)
+In this mode, VJ Mix runs completely autonomously. Visuals can be animated manually or react dynamically to the audio captured by the browser's microphone or system audio routing. 
+It is the perfect mode for quick and simple usage without requiring any third-party DJ software.
+
+### 2. Rekordbox Bridge Mode (Advanced)
+This advanced mode perfectly synchronizes your visuals with your DJ set in real-time. The VJ Mix application connects to the **Rekordbox Bridge** API, a local gateway that communicates directly with your Rekordbox DJ software.
+
+In this mode, VJ Mix receives frame-perfect, real-time data:
+- The exact BPM and playback position
+- Millimeter-precise beat grid synchronization
+- Track structure and phrasing (intro, verse, chorus, build-up, drop, outro...)
+- Active deck and playback states
+
+This data is used to automatically trigger visual effects, transitions, and animations that strictly follow the musical dynamics and structure of your mix.
+
+#### Architecture with Rekordbox Bridge
+
+```mermaid
+flowchart LR
+    subgraph DJ Computer
+        RB[Rekordbox DJ] -.->|Memory Reading| BR[Rekordbox Bridge]
+        BR -->|WebSocket / HTTP API| VJ
+    end
+    
+    subgraph VJ System
+        CAM[Camera / Webcam] --> VJ[VJ Mix App]
+        VJ -->|Video Output| SCR[Screen / Projector]
+    end
+```
+
+> **Note:** The **Rekordbox Bridge** software is required for this mode and must run alongside Rekordbox. You can download it from the [Rekordbox Bridge Releases repository](https://github.com/eric-bastian/rekordbox-bridge-releases).
 
 ## Download
 
@@ -58,7 +93,42 @@ Ce dépôt contient **uniquement les exécutables publiés et les notes de versi
 - **Détourage (Background Removal)** : Supprimez automatiquement l'arrière-plan de votre capture vidéo pour incruster l'artiste de manière transparente par-dessus les visuels.
 - **Effets Graphiques** : Appliquez de nombreux effets visuels (filtres, colorimétrie, déformations) de manière indépendante sur les différentes sources (vidéos, caméra, animations).
 - **Textes Personnalisés** : Ajoutez, paramétrez et synchronisez des textes animés à la volée.
-- **Synchronisation Audio & DJ** : Utilisez le *Mode Standard* (réaction à l'audio du navigateur) ou le *Mode Rekordbox Bridge* pour une synchronisation parfaite avec votre set DJ (BPM, temps, structure du morceau).
+
+## Modes de fonctionnement
+
+L'application propose deux modes de fonctionnement principaux pour s'adapter à vos besoins :
+
+### 1. Mode Standard (Autonome)
+Le mode standard permet d'utiliser l'application de manière totalement autonome. Les visuels réagissent de manière indépendante ou à l'aide de l'analyse audio du navigateur (micro ou mixage stéréo du système) pour animer les différents effets graphiques. 
+C'est le mode idéal pour une utilisation simple et rapide, sans avoir besoin d'un logiciel DJ tiers.
+
+### 2. Mode Rekordbox Bridge (Avancé)
+Ce mode avancé permet de synchroniser parfaitement les visuels avec votre set DJ en temps réel. L'application VJ Mix se connecte à l'API **Rekordbox Bridge**, une passerelle locale qui communique directement avec votre logiciel Rekordbox.
+
+Dans ce mode, l'application reçoit en temps réel :
+- Le BPM exact et la position de lecture
+- La synchronisation millimétrée des *beats* (mesures)
+- La structure du morceau en cours (phrases : intro, drop, chorus, outro, etc.)
+- L'état de lecture et la platine active (Deck)
+
+Ces données permettent de déclencher automatiquement des effets visuels, des animations et des transitions qui collent parfaitement à la dynamique musicale et à la structure de votre mix.
+
+#### Architecture avec Rekordbox Bridge
+
+```mermaid
+flowchart LR
+    subgraph Ordinateur DJ
+        RB[Rekordbox DJ] -.->|Lecture mémoire| BR[Rekordbox Bridge]
+        BR -->|WebSocket / API HTTP| VJ
+    end
+    
+    subgraph Système VJ
+        CAM[Caméra / Webcam] --> VJ[App VJ Mix]
+        VJ -->|Sortie Vidéo| SCR[Écran / Projecteur]
+    end
+```
+
+> **Note :** Le logiciel **Rekordbox Bridge** est requis pour utiliser ce mode et doit s'exécuter en même temps que Rekordbox. Il peut être téléchargé gratuitement depuis le dépôt [Rekordbox Bridge Releases](https://github.com/eric-bastian/rekordbox-bridge-releases).
 
 ## Téléchargement
 
