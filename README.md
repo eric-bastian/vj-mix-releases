@@ -3,7 +3,7 @@
 > 🇬🇧 **English** — 🇫🇷 la version française de ce document est disponible plus
 > bas : **[aller à la version française](#version-française)**.
 
-A VJing (Visual Jockey) web application designed to manage videos, generate dynamic and reactive visuals, and overlay live camera capture.
+A VJing (Visual Jockey) application designed to manage videos, generate dynamic and reactive visuals, and overlay live camera capture.
 
 This repository holds **only the published binaries and the release notes**.
 
@@ -11,15 +11,23 @@ This repository holds **only the published binaries and the release notes**.
   <img src="./VJ%20app%20screenshot.png" width="600" alt="Preview">
 </p>
 
+## Features
+
+- **Multimedia Sources**: Import and use your own videos, images, and custom visuals to enrich the scene.
+- **Live Camera Capture**: Integrate the video feed from your webcam or an external camera in real-time during your performances.
+- **Background Removal**: Automatically remove the background from your video capture to transparently overlay the artist on top of the visuals.
+- **Graphic Effects**: Apply various visual effects (filters, color grading, distortions) independently on the different sources (videos, camera, animations).
+- **Custom Texts**: Add, configure, and synchronize animated texts on the fly.
+- **Audio & DJ Sync**: Run in *Standard Mode* (reacting to browser audio) or *Rekordbox Bridge Mode* for frame-perfect sync with your DJ set (BPM, beats, phrases).
+
 ## Download
 
-➡️ **[Latest release](../../releases/latest)**
+➡️ **[Download VJ Mix (Alpha Version)](https://github.com/eric-bastian/vj-mix-releases/raw/main/VJMIX_Setup.exe)**
 
 Windows 10 / 11, 64-bit.
 
 The executable is **not digitally signed**: Windows SmartScreen will show a
-warning on first launch ("More info" → "Run anyway"). Check the SHA-256
-fingerprint published on the release page.
+warning on first launch ("More info" → "Run anyway").
 
 ## Requirements
 
@@ -35,7 +43,7 @@ operation, stability or accuracy, including during a live performance.
 
 # <a name="version-française"></a>VJ Mix - téléchargements
 
-Une application web de VJing (Visual Jockey) conçue pour gérer des vidéos, générer des visuels dynamiques et réactifs, et incruster une capture caméra en live.
+Une application de VJing (Visual Jockey) conçue pour gérer des vidéos, générer des visuels dynamiques et réactifs, et incruster une capture caméra en live.
 
 Ce dépôt contient **uniquement les exécutables publiés et les notes de version**.
 
@@ -43,15 +51,23 @@ Ce dépôt contient **uniquement les exécutables publiés et les notes de versi
   <img src="./VJ%20app%20screenshot.png" width="600" alt="Aperçu">
 </p>
 
+## Fonctionnalités
+
+- **Sources Multimédias** : Importez et utilisez vos propres vidéos, images et visuels personnalisés pour enrichir la scène.
+- **Capture Caméra en Live** : Intégrez le flux vidéo de votre webcam ou d'une caméra externe en temps réel pendant vos performances.
+- **Détourage (Background Removal)** : Supprimez automatiquement l'arrière-plan de votre capture vidéo pour incruster l'artiste de manière transparente par-dessus les visuels.
+- **Effets Graphiques** : Appliquez de nombreux effets visuels (filtres, colorimétrie, déformations) de manière indépendante sur les différentes sources (vidéos, caméra, animations).
+- **Textes Personnalisés** : Ajoutez, paramétrez et synchronisez des textes animés à la volée.
+- **Synchronisation Audio & DJ** : Utilisez le *Mode Standard* (réaction à l'audio du navigateur) ou le *Mode Rekordbox Bridge* pour une synchronisation parfaite avec votre set DJ (BPM, temps, structure du morceau).
+
 ## Téléchargement
 
-➡️ **[Dernière version (Latest release)](../../releases/latest)**
+➡️ **[Télécharger VJ Mix (Version Alpha)](https://github.com/eric-bastian/vj-mix-releases/raw/main/VJMIX_Setup.exe)**
 
 Windows 10 / 11, 64 bits.
 
 L'exécutable n'est **pas signé numériquement** : Windows SmartScreen affichera un
-avertissement au premier lancement ("Informations complémentaires" → "Exécuter quand même"). Vérifiez l'empreinte SHA-256
-publiée sur la page de la version.
+avertissement au premier lancement ("Informations complémentaires" → "Exécuter quand même").
 
 ## Prérequis
 
