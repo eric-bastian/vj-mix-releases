@@ -36,21 +36,26 @@ In this mode, VJ Mix receives frame-perfect, real-time data:
 - Track structure and phrasing (intro, verse, chorus, build-up, drop, outro...)
 - Active deck and playback states
 
-This data is used to automatically trigger visual effects, transitions, and animations that strictly follow the musical dynamics and structure of your mix.
+These data are used to automatically trigger visual effects, transitions, and animations that strictly follow the musical dynamics and structure of your mix.
+
+> **Note:** The two applications (Rekordbox with its Bridge, and VJ Mix) can run on two separate computers over a local network, or on the very same computer.
 
 #### Architecture with Rekordbox Bridge
 
 ```mermaid
 flowchart LR
-    subgraph DJ Computer
+    CTRL[DJ Controller] -->|USB| DJC
+
+    subgraph DJC [DJ Computer]
         RB[Rekordbox DJ] -.->|Memory Reading| BR[Rekordbox Bridge]
-        BR -->|WebSocket / HTTP API| VJ
     end
     
-    subgraph VJ System
+    subgraph VJC [VJ Computer]
         CAM[Camera / Webcam] --> VJ[VJ Mix App]
-        VJ -->|Video Output| SCR[Screen / Projector]
     end
+    
+    BR -->|WebSocket / HTTP API| VJ
+    VJ -->|HDMI| SCR[Screen / Projector]
 ```
 
 > **Note:** The **Rekordbox Bridge** software is required for this mode and must run alongside Rekordbox. You can download it from the [Rekordbox Bridge Releases repository](https://github.com/eric-bastian/rekordbox-bridge-releases).
@@ -113,19 +118,24 @@ Dans ce mode, l'application reçoit en temps réel :
 
 Ces données permettent de déclencher automatiquement des effets visuels, des animations et des transitions qui collent parfaitement à la dynamique musicale et à la structure de votre mix.
 
+> **Note :** Les deux applications (Rekordbox avec son Bridge, et VJ Mix) peuvent s'exécuter sur deux ordinateurs distincts via un réseau local, ou bien sur le même ordinateur.
+
 #### Architecture avec Rekordbox Bridge
 
 ```mermaid
 flowchart LR
-    subgraph Ordinateur DJ
+    CTRL[Contrôleur DJ] -->|USB| DJC
+
+    subgraph DJC [Ordinateur DJ]
         RB[Rekordbox DJ] -.->|Lecture mémoire| BR[Rekordbox Bridge]
-        BR -->|WebSocket / API HTTP| VJ
     end
     
-    subgraph Système VJ
+    subgraph VJC [Ordinateur VJ]
         CAM[Caméra / Webcam] --> VJ[App VJ Mix]
-        VJ -->|Sortie Vidéo| SCR[Écran / Projecteur]
     end
+    
+    BR -->|WebSocket / API HTTP| VJ
+    VJ -->|HDMI| SCR[Écran / Projecteur]
 ```
 
 > **Note :** Le logiciel **Rekordbox Bridge** est requis pour utiliser ce mode et doit s'exécuter en même temps que Rekordbox. Il peut être téléchargé gratuitement depuis le dépôt [Rekordbox Bridge Releases](https://github.com/eric-bastian/rekordbox-bridge-releases).
